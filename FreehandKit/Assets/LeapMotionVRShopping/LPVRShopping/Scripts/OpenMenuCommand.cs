@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenTestingMenu : ICommand
+public class OpenMenuCommand : ICommand
 {
     private GameObject m_object;
     private GameObject childObject;
 
-    public OpenTestingMenu(GameObject ob1)
+    public OpenMenuCommand(GameObject ob1)
     {
         this.m_object = ob1;
 
@@ -15,7 +15,12 @@ public class OpenTestingMenu : ICommand
         {
             childObject = m_object.transform.GetChild(0).gameObject;
         }
+        else
+        {
+            Debug.Log("Pleasee add the child menu to the main Menu");
+        }
     }
+
 
     public void execute()
     {

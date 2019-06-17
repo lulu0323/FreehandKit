@@ -5,7 +5,6 @@ using UnityEngine;
 public class ResizeObject : MonoBehaviour
 {
     public GameObject m_object;
-    //public GameObject m2_Object;
     public float m_Scalar;
 
     float m_fLastDist;
@@ -20,17 +19,17 @@ public class ResizeObject : MonoBehaviour
 
     void Update()
     {
-       //m_object = DetectionManager.Get().GetCurrentGameObject();
+        //m_object = DetectionManager.Get().GetCurrentGameObject();
 
         if (m_bResizing && DetectionManager.Get().IsBothHandsSet())
         {
             float fNewDistance = GetDistance();
 
             float fChange = fNewDistance - m_fLastDist;
-            
+
             m_object.transform.localScale += new Vector3(fChange, fChange, fChange) * m_Scalar;
-            
-            if(m_object.transform.localScale.x < 0)
+
+            if (m_object.transform.localScale.x < 0)
             {
                 m_object.transform.localScale = new Vector3(0, 0, 0);
             }

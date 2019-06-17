@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseTestingMenu : ICommand
+public class CloseMenuCommand : ICommand
 {
     private GameObject m_object;
     private GameObject childObject;
 
-    public CloseTestingMenu(GameObject ob1)
+    public CloseMenuCommand(GameObject ob1)
     {
         this.m_object = ob1;
 
         if (m_object.transform.GetChild(0).gameObject != null)
         {
             childObject = m_object.transform.GetChild(0).gameObject;
+        }
+        else
+        {
+            Debug.Log("Pleasee add the child menu to the main Menu");
         }
     }
 
